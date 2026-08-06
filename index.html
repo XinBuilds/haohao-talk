@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>好好聊 · 给好好和妈妈的一个想法</title>
+<style>
+  :root {
+    --ink: #33281f;
+    --ink-soft: #6f5f52;
+    --bg: #faf5ee;
+    --card: #ffffff;
+    --line: #eadfd2;
+    --accent: #e05d4e;
+    --accent-dark: #b84337;
+    --accent-soft: #fbeae6;
+    --teal: #2e7d72;
+    --teal-soft: #e3f1ee;
+    --gold: #c98a1e;
+    --gold-soft: #faf0dc;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 28px 18px 52px;
+  }
+
+  .hero { text-align: center; padding: 10px 2px 26px; }
+
+  .kicker {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 4px 14px;
+  }
+
+  h1 { font-size: 36px; margin: 10px 0 2px; letter-spacing: 2px; }
+  .hero .sub { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+  .purpose {
+    margin-top: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-size: 14px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .purpose strong { color: var(--accent-dark); }
+
+  .sec { margin: 38px 0 0; }
+
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .sec-num {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  h2 { font-size: 20px; margin: 0; }
+
+  .lead { color: var(--ink-soft); font-size: 14px; margin: 0 0 14px; }
+
+  .moment {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .moment .tag {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 2px 11px;
+    margin-bottom: 8px;
+  }
+
+  .moment h3 { font-size: 15px; margin: 0 0 5px; }
+  .moment p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  .demo-box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .demo-top {
+    background: var(--accent-soft);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .demo-status { font-size: 13px; color: var(--accent-dark); font-weight: 500; }
+
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #e8c9c2; }
+  .dot.on { background: var(--accent); }
+
+  .demo-body { padding: 16px 16px 8px; min-height: 268px; }
+
+  .card-label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    background: var(--gold-soft);
+    display: inline-block;
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+  }
+
+  .question {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 12px;
+  }
+
+  .bubble {
+    border-radius: 14px;
+    padding: 9px 14px;
+    margin: 8px 0;
+    font-size: 14px;
+    max-width: 94%;
+  }
+
+  .bubble .who { font-size: 12px; font-weight: 500; margin-bottom: 2px; }
+  .bubble p { margin: 0; }
+
+  .bubble.a { background: var(--teal-soft); color: #1f4a44; }
+  .bubble.a .who { color: var(--teal); }
+  .bubble.b { background: var(--gold-soft); color: #5c4413; margin-left: auto; }
+  .bubble.b .who { color: var(--gold); }
+
+  .demo-controls {
+    padding: 14px 16px 16px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    min-height: 48px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 15px;
+    padding: 0 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    flex: 1;
+  }
+
+  .btn.ghost { background: transparent; }
+
+  .why-list { list-style: none; padding: 0; margin: 0; }
+  .why-list li {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 13px 16px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .why-list strong { display: block; font-size: 15px; margin-bottom: 2px; }
+
+  .power-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .power {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .power .num { font-size: 24px; font-weight: 500; color: var(--accent); line-height: 1.2; }
+  .power .name { font-size: 13px; font-weight: 500; }
+  .power .desc { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  .rules-list { list-style: none; padding: 0; margin: 0; }
+  .rules-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .rules-list .tick {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--teal-soft);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  .opt-group { margin-bottom: 16px; }
+  .opt-label { font-size: 14px; font-weight: 500; margin-bottom: 8px; display: block; }
+
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .opt input {
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    accent-color: var(--accent);
+    flex: 0 0 auto;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font: inherit;
+    font-size: 14px;
+    background: var(--card);
+    color: var(--ink);
+    resize: vertical;
+  }
+
+  .copy-btn {
+    width: 100%;
+    min-height: 52px;
+    border: none;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .copy-btn:active { background: var(--accent-dark); }
+
+  .copy-hint {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .copy-msg {
+    font-size: 13px;
+    color: var(--teal);
+    text-align: center;
+    margin-top: 8px;
+    min-height: 20px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 12px;
+    margin-top: 42px;
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <span class="kicker">一个想法 · 草稿 v0.1</span>
+    <h1>好好聊</h1>
+    <p class="sub">一个给好好和妈妈的对话游戏</p>
+    <div class="purpose">
+      姐姐，这个页面 3 分钟就能看完。它不是成品，只是一个“也许对你们有用”的草稿。
+      看完哪里不对、想要什么，<strong>直接告诉我，我改</strong>。
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>为什么会有这个想法</h2>
+    </div>
+    <p class="lead">
+      好好的世界正在变得很大，家里的信息渠道管不住她，也不想管住她。
+      她觉得自己是大人了——删视频、报班、给老师打分，都是在用自己的方式做主。
+      不是她不好沟通，是还没有一张“她觉得平等”的桌子。
+    </p>
+    <p class="lead">
+      这个想法只做一件事：创造 20 分钟，让妈妈和好好在规则完全平等的情况下说话。
+    </p>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>从你们的生活里长出来的</h2>
+    </div>
+    <p class="lead">这些话不是我编的，是从你们真实发生过的小事里长出来的。</p>
+
+    <div class="moment">
+      <span class="tag">删视频事件</span>
+      <h3>谁做主，就写进规则</h3>
+      <p>她说“我的视频，我能做主”。游戏里也这样：卡片写不写、写什么，由本人做主；不想答的题可以直接跳过，不用解释。</p>
+    </div>
+
+    <div class="moment">
+      <span class="tag">给老师打 70 分</span>
+      <h3>不预设答案，只问问题</h3>
+      <p>她的复杂思考已经超出很多大人。游戏里没有标准答案，只有问题；答得好不好，由她自己定义。</p>
+    </div>
+
+    <div class="moment">
+      <span class="tag">和好朋友保持边界</span>
+      <h3>真实的事，变成题目</h3>
+      <p>她主动求助过你一次，说明她信任你。把真实发生的事写进空白卡，想聊就聊，不想聊就换一张。</p>
+    </div>
+
+    <div class="moment">
+      <span class="tag">散步聊婚姻</span>
+      <h3>散步就是最好的场景</h3>
+      <p>并排走、不面对面、眼睛不用互相盯着。散步 20 分钟，就是完整的一局。</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>试玩：一局是什么样</h2>
+    </div>
+    <p class="lead">点“开始试玩”，模拟一局。你不需要回答，只看节奏。</p>
+
+    <div class="demo-box">
+      <div class="demo-top">
+        <span class="demo-status" id="demoStatus" aria-live="polite">还没有开始</span>
+        <span class="dots" id="demoDots" aria-hidden="true"></span>
+      </div>
+      <div class="demo-body" id="demoBody"></div>
+      <div class="demo-controls">
+        <button type="button" class="btn primary" id="demoNext">开始试玩</button>
+        <button type="button" class="btn ghost" id="demoRestart" hidden>再看一遍</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>为什么它也许有用</h2>
+    </div>
+    <ul class="why-list">
+      <li>
+        <strong>平等不是装的</strong>
+        主持轮流当，妈妈也要答题，也要说“这个我不知道”。
+      </li>
+      <li>
+        <strong>说教被规则隔离</strong>
+        答完只能追问，不能评价。想听建议，要先说“我想听听你的看法”。
+      </li>
+      <li>
+        <strong>她随时有退出权</strong>
+        权力在她手里，她才敢聊。
+      </li>
+      <li>
+        <strong>真实事件变成题目</strong>
+        不用专门找话题，生活里的事就是素材。
+      </li>
+      <li>
+        <strong>成本几乎为零</strong>
+        散步时就能玩，每周 1–2 次，每次 20–30 分钟，不用花钱。
+      </li>
+    </ul>
+
+    <div class="power-grid">
+      <div class="power">
+        <div class="num">×2</div>
+        <div class="name">跳过卡</div>
+        <div class="desc">不想答就不答</div>
+      </div>
+      <div class="power">
+        <div class="num">×1</div>
+        <div class="name">反问卡</div>
+        <div class="desc">把问题抛回去</div>
+      </div>
+      <div class="power">
+        <div class="num">×1</div>
+        <div class="name">终止卡</div>
+        <div class="desc">随时可以结束</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>规则由你们定，不是由我定</h2>
+    </div>
+    <ul class="rules-list">
+      <li>
+        <span class="tick">✓</span>
+        <span>第一次不是玩游戏，是一起“设计规则”：每人提 2 条“必须”和 2 条“禁止”，只留下双方都同意的 3–5 条。</span>
+      </li>
+      <li>
+        <span class="tick">✓</span>
+        <span>好好有最终否决权，你也有。她不同意的规则不成立。</span>
+      </li>
+      <li>
+        <span class="tick">✓</span>
+        <span>她想改规则，随时改。改规则这件事，本身就是一次沟通。</span>
+      </li>
+      <li>
+        <span class="tick">✓</span>
+        <span>爸爸想加入也可以，三人局的规则以后再说。</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sec" id="feedback">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>我需要你的反馈</h2>
+    </div>
+    <p class="lead">你觉得哪里说中了？哪里很离谱？越具体越好。</p>
+
+    <div class="opt-group">
+      <span class="opt-label">好好愿意试的可能性？</span>
+      <label class="opt"><input type="radio" name="likelihood" value="应该会"><span>应该会</span></label>
+      <label class="opt"><input type="radio" name="likelihood" value="可能会"><span>可能会</span></label>
+      <label class="opt"><input type="radio" name="likelihood" value="很难说"><span>很难说</span></label>
+    </div>
+
+    <div class="opt-group">
+      <span class="opt-label">你最担心什么？（可多选）</span>
+      <label class="opt"><input type="checkbox" name="worry" value="她会觉得被安排沟通"><span>她会觉得“被安排沟通”</span></label>
+      <label class="opt"><input type="checkbox" name="worry" value="我会忍不住讲道理"><span>我会忍不住讲道理</span></label>
+      <label class="opt"><input type="checkbox" name="worry" value="没时间坚持"><span>没时间坚持</span></label>
+      <label class="opt"><input type="checkbox" name="worry" value="不知道聊什么"><span>不知道聊什么</span></label>
+      <label class="opt"><input type="checkbox" name="worry" value="聊到一半吵起来"><span>聊到一半吵起来</span></label>
+      <label class="opt"><input type="checkbox" name="worry" value="其他担心"><span>其他</span></label>
+    </div>
+
+    <div class="opt-group">
+      <span class="opt-label">你希望它变成什么？（可多选）</span>
+      <label class="opt"><input type="checkbox" name="want" value="一套实体卡片"><span>一套实体卡片</span></label>
+      <label class="opt"><input type="checkbox" name="want" value="手机里的小工具"><span>手机里的小工具</span></label>
+      <label class="opt"><input type="checkbox" name="want" value="每周固定一天散步聊"><span>每周固定一天散步聊</span></label>
+      <label class="opt"><input type="checkbox" name="want" value="想聊就聊，不固定"><span>想聊就聊，不固定</span></label>
+      <label class="opt"><input type="checkbox" name="want" value="加上爸爸"><span>加上爸爸</span></label>
+      <label class="opt"><input type="checkbox" name="want" value="先不着急"><span>先不着急</span></label>
+    </div>
+
+    <div class="opt-group">
+      <span class="opt-label">自由写：你的想法、担心、要求</span>
+      <textarea id="freeText" placeholder="比如：好好最近更愿意在睡前聊，白天没空……"></textarea>
+    </div>
+
+    <button type="button" class="copy-btn" id="copyBtn">复制反馈发给我</button>
+    <div class="copy-msg" id="copyMsg" aria-live="polite"></div>
+    <p class="copy-hint">复制后粘贴到微信发给我就行；复制不了就直接截图这个页面发我。</p>
+  </section>
+
+  <footer>好好聊 · 草稿 v0.1 · 2026-08-06 · 页面可以随便转，内容还在改</footer>
+</main>
+
+<script>
+  'use strict';
+
+  var rounds = [
+    {
+      card: '破冰卡 · 主持人：妈妈',
+      question: '今天有没有一件小事让你开心？',
+      a: { who: '好好', text: '今天和同桌换着听歌，她的歌单还行。' },
+      b: { who: '妈妈', text: '追问：哪一首让你觉得“还行”？' }
+    },
+    {
+      card: '观点卡 · 主持人：好好',
+      question: '你想成为什么样的人？',
+      a: { who: '好好', text: '我想成为一个能自己做主的人。' },
+      b: { who: '妈妈', text: '追问：如果做主和听话冲突了呢？' }
+    },
+    {
+      card: '空白事件卡（好好带来的）',
+      question: '和好朋友要不要继续做朋友？',
+      a: { who: '好好', text: '我想做普通同学，但不知道怎么开口，怕她难过。' },
+      b: { who: '妈妈', text: '追问：你已经想过哪些办法了？' }
+    },
+    {
+      card: '收尾 · 每人一句话',
+      question: '我今天最想让你知道的是……',
+      a: { who: '好好', text: '我说话的时候，你别急着给意见。' },
+      b: { who: '妈妈', text: '好，我记住了。这句话我会写进博物馆。' }
+    }
+  ];
+
+  var step = -1;
+  var demoBody = document.getElementById('demoBody');
+  var demoStatus = document.getElementById('demoStatus');
+  var demoDots = document.getElementById('demoDots');
+  var demoNext = document.getElementById('demoNext');
+  var demoRestart = document.getElementById('demoRestart');
+
+  function drawDots() {
+    var html = '';
+    for (var i = 0; i < rounds.length; i++) {
+      html += '<span class="dot' + (i <= step ? ' on' : '') + '"></span>';
+    }
+    demoDots.innerHTML = html;
+  }
+
+  function drawRound() {
+    if (step < 0) {
+      demoStatus.textContent = '还没有开始';
+      demoBody.innerHTML =
+        '<p class="lead" style="margin-top:8px">' +
+        '一局 4 轮，主持轮流当。妈妈和好好都要答题，也都可以追问。</p>' +
+        '<p class="lead">看点：没有人评价对错，没有人讲道理。</p>';
+      demoNext.textContent = '开始试玩';
+      demoRestart.hidden = true;
+      drawDots();
+      return;
+    }
+
+    if (step >= rounds.length) {
+      demoStatus.textContent = '试玩结束';
+      demoBody.innerHTML =
+        '<p class="question" style="margin:10px 0 14px">20 分钟，没有讲道理，没有正确答案。</p>' +
+        '<div class="bubble a"><div class="who">好好</div><p>谁也没有输。</p></div>' +
+        '<div class="bubble b"><div class="who">妈妈</div><p>下次还想散步的时候，再玩一局。</p></div>';
+      demoNext.textContent = '再看一遍';
+      demoRestart.hidden = false;
+      drawDots();
+      return;
+    }
+
+    var r = rounds[step];
+    demoStatus.textContent = '第 ' + (step + 1) + ' / ' + rounds.length + ' 轮';
+    demoBody.innerHTML =
+      '<span class="card-label">' + r.card + '</span>' +
+      '<p class="question">' + r.question + '</p>' +
+      '<div class="bubble a"><div class="who">' + r.a.who + '</div><p>' + r.a.text + '</p></div>' +
+      '<div class="bubble b"><div class="who">' + r.b.who + '</div><p>' + r.b.text + '</p></div>';
+    demoNext.textContent = step === rounds.length - 1 ? '看结尾' : '下一轮';
+    demoRestart.hidden = false;
+    drawDots();
+  }
+
+  demoNext.addEventListener('click', function () {
+    step += 1;
+    drawRound();
+  });
+
+  demoRestart.addEventListener('click', function () {
+    step = -1;
+    drawRound();
+  });
+
+  drawRound();
+
+  function checkedValues(name) {
+    var nodes = document.querySelectorAll('input[name="' + name + '"]:checked');
+    var values = [];
+    for (var i = 0; i < nodes.length; i++) {
+      values.push(nodes[i].value);
+    }
+    return values;
+  }
+
+  function buildFeedback() {
+    var lines = [];
+    lines.push('【好好聊反馈】2026-08-06');
+    var like = checkedValues('likelihood');
+    lines.push('她愿意试的可能性：' + (like.length ? like[0] : '未选'));
+    var worry = checkedValues('worry');
+    lines.push('我担心的：' + (worry.length ? worry.join('、') : '未选'));
+    var want = checkedValues('want');
+    lines.push('我希望它：' + (want.length ? want.join('、') : '未选'));
+    var free = document.getElementById('freeText').value.trim();
+    if (free) {
+      lines.push('自由补充：' + free);
+    }
+    return lines.join('\n');
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch (e) {
+      ok = false;
+    }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var text = buildFeedback();
+    var msg = document.getElementById('copyMsg');
+    function done(ok) {
+      if (ok) {
+        msg.textContent = '已复制，粘贴到微信发给我就行。';
+      } else {
+        msg.textContent = '复制失败，请长按选择文字或直接截图发我。';
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        done(true);
+      }, function () {
+        done(fallbackCopy(text));
+      });
+    } else {
+      done(fallbackCopy(text));
+    }
+  });
+</script>
+</body>
+</html>
