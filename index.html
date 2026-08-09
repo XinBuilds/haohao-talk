@@ -112,6 +112,7 @@
 
   .moment h3 { font-size: 15px; margin: 0 0 5px; }
   .moment p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+  .moment p + p { margin-top: 8px; }
 
   .demo-box {
     background: var(--card);
@@ -356,11 +357,14 @@
 <main class="wrap">
 
   <header class="hero">
-    <span class="kicker">一个想法 · 草稿 v0.4</span>
+    <span class="kicker">一个想法 · 草稿 v0.5</span>
     <h1>好好聊</h1>
     <p class="sub">一个给好好和妈妈的对话游戏</p>
     <div class="feedback-note">
-      你上次的反馈我已经改了：新增「每日一卡」不追问模式；题目分成「客厅题」和「房间题」；对话不上饭桌。另外按我们的讨论，追加了一组「人生大问题」，玩法也升级成一整周的节奏：五天卡 + 周末聊。
+      按你的两次反馈，这版已改成：<br>
+      时间不卡死——每周至少 1 次互动，什么时候、在哪里聊，由好好选；<br>
+      积分存折——互动攒分，达标后她可以反向提一个合理诉求（只奖参与、不奖答案，启动期 4 周）；<br>
+      评分纯自愿——不评也不影响。
     </div>
   </header>
 
@@ -420,21 +424,25 @@
       </li>
       <li>
         <strong>周一至周四</strong>
-        每天一张主题卡。看题随意，回不回应随意；背面可以打分、写一句、或画个表情。
+        每天一张主题卡。看题随意，回不回应随意；评分纯自愿，不评也不影响。
       </li>
       <li>
         <strong>周五</strong>
         好好自己出题，妈妈答。她出题，就是买账。
       </li>
       <li>
-        <strong>周末固定 20–30 分钟</strong>
-        她挑一道最想聊的，妈妈先答；不想聊就顺延，不追问不追责。
-      </li>
-      <li>
-        <strong>时间要改，提前说</strong>
-        说明理由 + 改到什么时候，双方同意才算数。
+        <strong>每周至少 1 次互动</strong>
+        不卡死日期，时间与场景由好好选：放学路上、饭后、睡前、散步都可以。
       </li>
     </ul>
+
+    <div class="moment">
+      <span class="tag">积分怎么玩 · 启动期 4 周</span>
+      <h3>像她上瘾的记单词游戏：攒分 + 兑换</h3>
+      <p><strong>攒分：</strong>完成一次互动（打分、写一句、画表情、周末聊天）= 1 分；周五自己出题 = 2 分；周末聊 20–30 分钟 = 2 分。</p>
+      <p><strong>兑换：</strong>攒到目标分（兑换清单一家人一起定，比如 5/10/20 分），好好可以反向提一个合理诉求：看一部电影、买一本书/文具、一次外出都可以。</p>
+      <p><strong>底线：</strong>只奖参与，不奖答案；不回应不扣分；4 周后由好好决定保留、调整还是取消。</p>
+    </div>
   </section>
 
   <section class="sec">
@@ -536,7 +544,11 @@
       </li>
       <li>
         <span class="tick">✓</span>
-        <span>时间想改提前说：理由 + 改到什么时候，双方同意才算数；当场“今天不想聊”就顺延，不追问。</span>
+        <span>时间灵活约定：每周至少 1 次互动，时间与场景由好好选；约好了再变动提前说一声，当场不想聊就顺延。</span>
+      </li>
+      <li>
+        <span class="tick">✓</span>
+        <span>积分只奖参与：打分、写一句、画表情、周末聊天都算；不回应不扣分；4 周后由好好决定保留还是取消。</span>
       </li>
     </ul>
   </section>
@@ -556,46 +568,41 @@
       <span class="sec-num">07</span>
       <h2>我需要你的反馈</h2>
     </div>
-    <p class="lead">这版按你的建议改过了。下面只问和这版有关的问题，越具体越好。</p>
+    <p class="lead">这版按你的第二轮反馈改过了：时间不卡死、加了积分存折。下面只问这几个新点，越具体越好。</p>
 
     <div class="opt-group">
-      <span class="opt-label">这版的一周流程，你觉得可行吗？</span>
-      <label class="opt"><input type="radio" name="flow" value="整体很顺，可以先试"><span>整体很顺，可以先试</span></label>
-      <label class="opt"><input type="radio" name="flow" value="大方向可以，有一两处要调"><span>大方向可以，有一两处要调</span></label>
-      <label class="opt"><input type="radio" name="flow" value="不太可行"><span>不太可行</span></label>
+      <span class="opt-label">积分制这个方向？</span>
+      <label class="opt"><input type="radio" name="points" value="认同，先试 4 周"><span>认同，先试 4 周</span></label>
+      <label class="opt"><input type="radio" name="points" value="认同，但要再简化"><span>认同，但要再简化</span></label>
+      <label class="opt"><input type="radio" name="points" value="不太认同"><span>不太认同</span></label>
     </div>
 
     <div class="opt-group">
-      <span class="opt-label">第一个主题「选择」，好好大概会有兴趣吗？</span>
-      <label class="opt"><input type="radio" name="theme" value="应该会"><span>应该会</span></label>
-      <label class="opt"><input type="radio" name="theme" value="不确定"><span>不确定</span></label>
-      <label class="opt"><input type="radio" name="theme" value="可能不会"><span>可能不会</span></label>
+      <span class="opt-label">“每周至少 1 次、时间由好好选”，够不够明确？</span>
+      <label class="opt"><input type="radio" name="schedule" value="够，先这样"><span>够，先这样</span></label>
+      <label class="opt"><input type="radio" name="schedule" value="要更明确（比如最迟周日补一次）"><span>要更明确（比如最迟周日补一次）</span></label>
+      <label class="opt"><input type="radio" name="schedule" value="还要更松"><span>还要更松</span></label>
     </div>
 
     <div class="opt-group">
-      <span class="opt-label">周五“她出题、妈妈答”，她出题的可能性？</span>
-      <label class="opt"><input type="radio" name="friday" value="会出"><span>会出</span></label>
-      <label class="opt"><input type="radio" name="friday" value="看情况"><span>看情况</span></label>
-      <label class="opt"><input type="radio" name="friday" value="大概率不会"><span>大概率不会</span></label>
+      <span class="opt-label">评分角怎么处理？</span>
+      <label class="opt"><input type="radio" name="scoreNew" value="先保留，纯自愿"><span>先保留，纯自愿</span></label>
+      <label class="opt"><input type="radio" name="scoreNew" value="直接去掉"><span>直接去掉</span></label>
+      <label class="opt"><input type="radio" name="scoreNew" value="先不加，以后再试"><span>先不加，以后再试</span></label>
     </div>
 
     <div class="opt-group">
-      <span class="opt-label">卡片角落的评分（1–5 圈一个），会让她觉得是任务吗？</span>
-      <label class="opt"><input type="radio" name="score" value="不会，随手就圈"><span>不会，随手就圈</span></label>
-      <label class="opt"><input type="radio" name="score" value="可能有一点"><span>可能有一点</span></label>
-      <label class="opt"><input type="radio" name="score" value="会，建议去掉"><span>会，建议去掉</span></label>
+      <span class="opt-label">兑换清单你希望包含什么？（可多选）</span>
+      <label class="opt"><input type="checkbox" name="redeem" value="看电影/剧"><span>看电影/剧</span></label>
+      <label class="opt"><input type="checkbox" name="redeem" value="买文具/书"><span>买文具/书</span></label>
+      <label class="opt"><input type="checkbox" name="redeem" value="一次外出（公园、逛街）"><span>一次外出（公园、逛街）</span></label>
+      <label class="opt"><input type="checkbox" name="redeem" value="点一份想吃的东西"><span>点一份想吃的东西</span></label>
+      <label class="opt"><input type="checkbox" name="redeem" value="其他"><span>其他</span></label>
     </div>
 
     <div class="opt-group">
-      <span class="opt-label">周末固定时间 + “改时间提前说理由”，你能接受吗？</span>
-      <label class="opt"><input type="radio" name="timeRule" value="可以"><span>可以</span></label>
-      <label class="opt"><input type="radio" name="timeRule" value="可以，但要改一改"><span>可以，但要改一改</span></label>
-      <label class="opt"><input type="radio" name="timeRule" value="不太接受"><span>不太接受</span></label>
-    </div>
-
-    <div class="opt-group">
-      <span class="opt-label">自由写：哪里要调、想换什么主题、其他要求</span>
-      <textarea id="freeText" placeholder="比如：周一的题可以再轻一点；周末时间定在周日晚饭后……"></textarea>
+      <span class="opt-label">自由写：积分多少分合适、兑换想加什么、其他要求</span>
+      <textarea id="freeText" placeholder="比如：5 分太少/太多；兑换想加……"></textarea>
     </div>
 
     <button type="button" class="copy-btn" id="copyBtn">复制反馈发给我</button>
@@ -603,7 +610,7 @@
     <p class="copy-hint">复制后粘贴到微信发给我就行；复制不了就直接截图这个页面发我。</p>
   </section>
 
-  <footer>好好聊 · 草稿 v0.4 · 2026-08-09 · 页面可以随便转，内容还在改</footer>
+  <footer>好好聊 · 草稿 v0.5 · 2026-08-09 · 页面可以随便转，内容还在改</footer>
 </main>
 
 <script>
@@ -614,7 +621,7 @@
       day: '周日',
       card: '备卡 · 10 分钟',
       question: '主题：选择。妈妈准备好 5 张卡，周五留一张空白的给她出题。',
-      a: { who: '妈妈', text: '5 张卡放好：周一到周四各一张，周五空白。这周不用再做别的。' }
+      a: { who: '妈妈', text: '5 张卡放好：周一到周四各一张，周五空白；积分存折也放桌上。' }
     },
     {
       day: '周一',
@@ -650,15 +657,15 @@
     },
     {
       day: '周末',
-      card: '20–30 分钟',
+      card: '每周 1 次 · 时间她定',
       question: '她挑了周三那道：“什么样的选择算大选择？”',
-      a: { who: '妈妈', text: '先答了自己的想法，没评价她答不答。' },
-      b: { who: '好好', text: '补了一句：“我觉得每天多睡半小时也是大选择。”收尾各写一句进博物馆。' }
+      a: { who: '妈妈', text: '饭后散步，她挑了周三那道题。妈妈先答了自己的想法，没评价她答不答。' },
+      b: { who: '好好', text: '补了一句：“我觉得每天多睡半小时也是大选择。”收尾各写一句进博物馆。这周攒了 5 分。' }
     },
     {
       day: '一周结束',
       card: '小结',
-      question: '5 张卡 + 1 次聊天。她没有每天答，但周末自己挑题聊了。',
+      question: '5 张卡 + 1 次聊天 + 5 分积分。她没有每天答，但周末自己挑题聊了。',
       a: { who: '好好', text: '谁也没有被追问。' },
       b: { who: '妈妈', text: '下周换「时间」主题试试。' }
     }
@@ -742,17 +749,15 @@
 
   function buildFeedback() {
     var lines = [];
-    lines.push('【好好聊 v0.4 反馈】2026-08-09');
-    var flow = checkedValues('flow');
-    lines.push('一周流程：' + (flow.length ? flow[0] : '未选'));
-    var theme = checkedValues('theme');
-    lines.push('第一个主题「选择」：' + (theme.length ? theme[0] : '未选'));
-    var friday = checkedValues('friday');
-    lines.push('周五她出题：' + (friday.length ? friday[0] : '未选'));
-    var score = checkedValues('score');
-    lines.push('评分角：' + (score.length ? score[0] : '未选'));
-    var timeRule = checkedValues('timeRule');
-    lines.push('固定时间规则：' + (timeRule.length ? timeRule[0] : '未选'));
+    lines.push('【好好聊 v0.5 反馈】2026-08-09');
+    var points = checkedValues('points');
+    lines.push('积分制：' + (points.length ? points[0] : '未选'));
+    var schedule = checkedValues('schedule');
+    lines.push('每周至少 1 次：' + (schedule.length ? schedule[0] : '未选'));
+    var scoreNew = checkedValues('scoreNew');
+    lines.push('评分角：' + (scoreNew.length ? scoreNew[0] : '未选'));
+    var redeem = checkedValues('redeem');
+    lines.push('兑换清单：' + (redeem.length ? redeem.join('、') : '未选'));
     var free = document.getElementById('freeText').value.trim();
     if (free) {
       lines.push('自由补充：' + free);
